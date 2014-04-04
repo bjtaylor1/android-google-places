@@ -5,7 +5,13 @@ import org.json.JSONObject;
 
 public abstract class Result {
 
-	public enum StatusCode
+    private final String mErrorMessage;
+
+    public String getErrorMessage() {
+        return mErrorMessage;
+    }
+
+    public enum StatusCode
 	{
 		OK,
 		ZeroResults,
@@ -25,6 +31,11 @@ public abstract class Result {
 	private String mStatusCodeValue = "";
 	
 	public Result(JSONObject jsonResponse) throws JSONException {
+        if(jsonResponse.has("error_message")) {
+            mErrorMessage = jsonResponse.getString("error_message");
+        } else {
+            mErrorMessage = null;
+        }
 		if (jsonResponse.has("status")) {
 			mStatusCode = getStatusCodeFromValue(jsonResponse.getString("status"));
 		} else {

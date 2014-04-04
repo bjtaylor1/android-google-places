@@ -7,8 +7,8 @@
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="modules">
           <set>
-            <option value="C:\proj\GooglePlaces" />
-            <option value="C:\proj\GooglePlaces\googleplaces" />
+            <option value="C:\proj\android-google-places" />
+            <option value="C:\proj\android-google-places\googleplaces" />
           </set>
         </option>
       </GradleProjectSettings>
