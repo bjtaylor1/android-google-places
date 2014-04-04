@@ -22,3 +22,21 @@ dependencies {
     compile 'com.android.support:appcompat-v7:19.+'
     compile fileTree(dir: 'libs', include: ['*.jar'])
 }
+
+
+apply plugin: 'android-library'
+apply plugin: 'maven'
+def coreAarFile = file('build/googleplaces.aar')
+artifacts {
+    archives coreAarFile
+}
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository url: "file://${System.properties['user.home']}/.m2/repository"
+            pom.groupId = 'org.gmarz.googleplaces'
+            pom.artifactId = 'googleplaces'
+            pom.version = '0.1.0'
+        }
+    }
+}
